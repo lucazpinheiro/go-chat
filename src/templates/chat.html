@@ -14,7 +14,7 @@
         </form>
     </body>
     <script>
-        const socket = new WebSocket("ws://localhost:8080/room")
+        const socket = new WebSocket("ws://{{.Host}}/room")
         document.querySelector('#chatbox')
             .addEventListener('submit', (e) => {
                 e.preventDefault()
