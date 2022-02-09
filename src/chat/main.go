@@ -5,11 +5,8 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	"os"
 	"path/filepath"
 	"sync"
-
-	"github.com/lucazpinheiro/go-chat/src/trace"
 )
 
 // templ represents a single template
@@ -30,7 +27,7 @@ func main() {
 	var addr = flag.String("addr", ":8080", "The addr of the application.")
 	flag.Parse() // parse flags
 	r := newRoom()
-	r.tracer = trace.New(os.Stdout)
+	// r.tracer = trace.New(os.Stdout)
 	http.Handle("/", &templateHandler{filename: "chat.html"})
 	http.Handle("/room", r)
 
